@@ -3,13 +3,14 @@ DROP TABLE IF EXISTS puppies;
 CREATE TABLE puppies (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(100),
-  age_yrs DECIMAL(2,1),
+  age_yrs DECIMAL(2, 1),
   breed VARCHAR(100),
   weight_lbs INT,
   microchipped BOOLEAN
 );
 
-INSERT INTO puppies
+INSERT INTO
+  puppies
 VALUES
   (1, 'Cooper', 1, 'Miniature Schnauzer', 18, 1),
   (2, 'Indie', 0.5, 'Yorkshire Terrier', 13, 1),
@@ -21,3 +22,23 @@ VALUES
   (8, 'Jaxson', 0.4, 'Beagle', 19, 1),
   (9, 'Leinni', 1, 'Miniature Schnauzer', 25, 1),
   (10, 'Max', 1.6, 'German Shepherd', 65, 0);
+
+-- Step 1: Delete one row by primary key
+-- select * from puppies where id = 9;
+DELETE FROM
+  puppies
+WHERE
+  id = 9;
+
+-- Step 2: Delete Several rows with matching condition
+-- select * from puppies where microchipped != true;
+DELETE FROM
+  puppies
+WHERE
+  microchipped != 1;
+
+-- Step 3: Final result
+SELECT
+  *
+FROM
+  puppies;
